@@ -1,0 +1,80 @@
+h1, h2{
+    color: black;
+}
+h2{
+    color:#00a693;
+}
+svg{
+    color: rgb(3, 159, 159);
+}
+.ex-container{
+    width: 60%;
+    margin: auto;
+}
+
+a {
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)) !important;
+    text-decoration: none;
+}
+.user-register{
+    width: 500px;
+    margin: auto;
+    padding-top: 10%;
+    text-align: center;
+}
+.men>a{
+    color: white !important;
+    text-decoration: none;
+}
+.success{
+    color: rgb(93, 200, 57);
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .575rem .95rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2.8;
+}
+
+.btn-2{
+    background-color: #00a693;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 0px;
+    color: white;
+}
+.login-txt {
+    color: #00a693;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 26px;
+}
+.fp{
+    color:#00a693 !important;
+    font-size: 16px !important;
+    padding: 10px 0px !important;
+}
+.fp:hover{
+    color:#000000 !important;
+    font-size: 16px !important;
+    padding: 10px 0px !important;
+}
+Link{
+    color: white;
+}
+.btn-2>span{
+    color: white;
+}
+select.form-control.fs_form {
+    padding: 0px !important;
+    padding: 0px 30px !important;
+    font-size: 14px !important;
+    width: 200px;
+}
