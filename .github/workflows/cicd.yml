@@ -6,25 +6,26 @@ on:
       - master
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    container:
+      image: docker:20.10.7
+      credentials:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-      - name: Login to docker hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
-      - name: Build Docker Image
-        run: docker build -t vinny143/ombrello-frontend .
-      - name: Publish Image to docker hub
-        run: docker push vinny143/ombrello-frontend:latest
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t vinny143/ombrello-frontend .
+          docker push vinny143/ombrello-frontend:latest
 
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    steps:
-      - name: Pull image from docker hub
-        run: docker pull vinny143/ombrello-frontend:latest
-      - name: Delete old container
-        run: docker rm -f ombrello-frontend-app-container
-      - name: Run Docker Container
-        run: docker run -d -p 5000:5000 --name ombrello-frontend-app-container vinny143/ombrello-frontend:latest
+      - name: Deploy to Docker
+        run: |
+          docker pull vinny143/ombrello-frontend:latest
+          docker stop ombrello-frontend-app-container || true
+          docker rm ombrello-frontend-app-container || true
+          docker run -d -p 5000:5000 --name ombrello-frontend-app-container vinny143/ombrello-frontend:latest
