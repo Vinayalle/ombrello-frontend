@@ -28,4 +28,4 @@ jobs:
           docker pull vinny143/ombrello-frontend:latest
           docker stop ombrello-frontend-app-container || true
           docker rm ombrello-frontend-app-container || true
-          docker run -d -p 5000:5000 --name ombrello-frontend-app-container vinny143/ombrello-frontend:latest
+          docker run -d -p 5173:5173 --name ombrello-frontend-app-container vinny143/ombrello-frontend:latest
