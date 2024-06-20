@@ -1,5 +1,5 @@
-# Use a base Node.js image
-FROM node:18 AS build
+# Use a base Node.js image with the LTS version
+FROM node:18 AS development
 
 # Set the working directory
 WORKDIR /app
@@ -7,29 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies including dev dependencies
 RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the React application for production
-RUN npm run build
-
-# Production environment
-FROM node:18-slim
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the build output from the build stage
-COPY --from=build /app/build ./build
-
-# Install serve to run the application
-RUN npm install -g serve
-
-# Expose the port where your app runs
+# Expose the port where Vite runs (default is 3000)
 EXPOSE 5000
 
-# Command to run the application
-CMD ["serve", "-s", "build", "-l", "5000"]
+# Command to run the application in development mode
+CMD ["npm", "run", "dev"]
