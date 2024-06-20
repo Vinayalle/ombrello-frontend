@@ -1,4 +1,4 @@
-name: Deploy Ombrello Backend
+name: Deploy Ombrello Frontend
 
 on:
   push:
