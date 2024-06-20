@@ -55,7 +55,7 @@ const Home = () => {
         })
       },[posts])
       useEffect(()=>{
-        axios.get('http://localhost:4000/events/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}events/`)
         .then(res=>
           {
             setEvents(res.data);

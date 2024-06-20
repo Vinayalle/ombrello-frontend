@@ -10,7 +10,7 @@ export const ClassRoom = () => {
     const [perpage,setPerpage]=useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/experiments/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/`)
         .then(res=>
           {
             setData(res.data);
