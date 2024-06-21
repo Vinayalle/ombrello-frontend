@@ -33,16 +33,16 @@ COPY . .
 RUN npm run build
 
 # Use the official Nginx image as the base image for the production environment
-FROM nginx:alpine
+# FROM nginx:alpine
 
 # Copy the built files from the build stage to the Nginx html directory
-COPY --from=build /app/dist /usr/share/nginx/html
+# COPY --from=build /app/dist /usr/share/nginx/html
 
 # Copy custom Nginx configuration file (optional)
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 5000
-
+CMD [ "npm", "run", "dev" ]
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
