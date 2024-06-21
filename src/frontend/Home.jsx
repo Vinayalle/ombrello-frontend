@@ -36,7 +36,7 @@ const Home = () => {
       })
     },[data])
     useEffect(()=>{
-        axios.get('http://localhost:4000/products/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}products/`)
         .then(res=>
           {
             setProducts(res.data);
@@ -46,7 +46,7 @@ const Home = () => {
       },[data])
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/posts/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/`)
         .then(res=>
           {
             setPosts(res.data);
