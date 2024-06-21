@@ -27,7 +27,7 @@ const Home = () => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedExperiment, setSelectedExperiment] = useState('');
     useEffect(()=>{
-      axios.get('http://localhost:4000/experiments/')
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/`)
       .then(res=>
         {
           setData(res.data);
@@ -66,20 +66,20 @@ const Home = () => {
 
       useEffect(() => {
    
-        axios.get('http://localhost:4000/classes/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}classes/`)
         .then(response => {
           setClasses(response.data);
         })
         .catch(error => console.log(error));
     
-          axios.get(`http://localhost:4000/subjects/`)
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}subjects/`)
             .then(response => {
               setSubjects(response.data);
             })
             .catch(error => console.log(error));
       
     
-        axios.get(`http://localhost:4000/experiments`)
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments`)
         .then(response => {
             setExperiments(response.data);
         })
@@ -123,7 +123,7 @@ const Home = () => {
                                         <Link to={`/events/${res._id}`}><a className="button b_t_hb" href="">View »</a></Link>
                                         {/* <a className="button b_t_nb" href="">Join AACT »</a> */}
                                         <div className="b_tab_img">
-                                            <img src={`http://localhost:4000/uploads/${res.image}`} className="img-responsive" />
+                                            <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} className="img-responsive" />
                                         </div>
                                     </div>
                                 </li>
