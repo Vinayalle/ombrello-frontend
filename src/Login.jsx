@@ -28,7 +28,7 @@ const loggedInData=useContext(AdminContext);
   
 
   useEffect(()=>{
-    fetch("http://localhost:4000/experiments/", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}experiments/`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -55,7 +55,7 @@ function submit(e){
   e.preventDefault();
   console.log(userCred);
 
-  fetch("http://localhost:4000/admin/login",{
+  fetch(`${import.meta.env.VITE_API_BASE_URL}admin/login`,{
     method:"POST",
     body:JSON.stringify(userCred),
     headers:{
