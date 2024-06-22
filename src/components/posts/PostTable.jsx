@@ -14,7 +14,7 @@ function PostTable() {
   const [data,setData]=useState([]);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:4000/posts/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/`)
     .then(res=>
       {
         setData(res.data);
@@ -25,7 +25,7 @@ function PostTable() {
 
   const deletePost = (postId) => {
     if (confirm("Are you sure you want to delete?")) {
-      axios.delete(`http://localhost:4000/posts/${postId}`)
+      axios.delete(`${import.meta.env.VITE_API_BASE_URL}posts/${postId}`)
         .then(res => {
           setData(data.filter(post => post._id !== postId));
           alert("Deleted successfully");
@@ -112,7 +112,7 @@ function PostTable() {
    <td>{res.name}</td>
    <td>{res.authorname}</td>
  
-   <td><img src={`http://localhost:4000/uploads/${res.image}`} width="150px" height="80px" /></td>
+   <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
    
    <td><Link to={`/admin/posts/${res._id}`}><FaRegEdit /></Link></td>
    <td><button onClick={()=>deletePost(res._id)}><RiDeleteBin6Line /></button></td>

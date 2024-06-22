@@ -427,7 +427,7 @@ const AddExperimentModel = () => {
     postData.append('image', formData.image);
 
     try {
-      const response = await axios.post('http://localhost:4000/experiments/add', postData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}experiments/add`, postData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "token":`${loggedData.loggedIn.token}`
@@ -449,7 +449,7 @@ const AddExperimentModel = () => {
 
     
 
-    fetch("http://localhost:4000/classes/", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}classes/`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -477,7 +477,7 @@ const AddExperimentModel = () => {
   
       
   
-      fetch("http://localhost:4000/subjects/", {
+      fetch(`${import.meta.env.VITE_API_BASE_URL}subjects/`, {
               method: "get",
               headers: {
                   "Content-Type": "application/json"

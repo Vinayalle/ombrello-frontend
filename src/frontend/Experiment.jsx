@@ -74,7 +74,7 @@ export const Experiment = (props) => {
   const [selectedSubject, setSelectedSubject] = useState('');
   // const [selectedExperiment, setSelectedExperiment] = useState('');
     useEffect(()=>{
-      axios.get('http://localhost:4000/experiments/')
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/`)
       .then(res=>
         {
           setData(res.data);
@@ -84,7 +84,7 @@ export const Experiment = (props) => {
     },[data])
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/posts/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/`)
         .then(res=>
           {
             setPosts(res.data);
@@ -93,7 +93,7 @@ export const Experiment = (props) => {
         })
       },[posts])
       useEffect(()=>{
-        axios.get('http://localhost:4000/events/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}events/`)
         .then(res=>
           {
             setEvents(res.data);
@@ -104,20 +104,20 @@ export const Experiment = (props) => {
 
       useEffect(() => {
    
-        axios.get('http://localhost:4000/classes/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}classes/`)
         .then(response => {
           setClasses(response.data);
         })
         .catch(error => console.log(error));
     
-          axios.get(`http://localhost:4000/subjects/`)
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}subjects/`)
             .then(response => {
               setSubjects(response.data);
             })
             .catch(error => console.log(error));
       
     
-        axios.get(`http://localhost:4000/experiments`)
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments`)
         .then(response => {
             setExperiments(response.data);
         })
@@ -176,7 +176,7 @@ export const Experiment = (props) => {
                         <div className="class_expirement_box">
                             <h1 className="cr_p_h"> {post.name} </h1>
                            
-                            <img className="img-responsive" id="cr_p_img" src={`http://localhost:4000/uploads/${post.image}`} />
+                            <img className="img-responsive" id="cr_p_img" src={`${import.meta.env.VITE_API_BASE_URL}uploads/${post.image}`} />
                     
                             {/* <p className="cr_p"> {post.description} </p> */}
                             <p

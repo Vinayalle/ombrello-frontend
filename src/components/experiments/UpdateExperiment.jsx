@@ -92,7 +92,7 @@ const UpdateExperiment = () => {
 
     
 
-    fetch("http://localhost:4000/classes/", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}classes/`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -120,7 +120,7 @@ const UpdateExperiment = () => {
   
       
   
-      fetch("http://localhost:4000/subjects/", {
+      fetch(`${import.meta.env.VITE_API_BASE_URL}subjects/`, {
               method: "get",
               headers: {
                   "Content-Type": "application/json"
@@ -177,7 +177,7 @@ const UpdateExperiment = () => {
           //   formData.append('image', file);
           // }
       
-          const response = await axios.put(`http://localhost:4000/experiments/${experimentId}`, postData, {
+          const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}experiments/${experimentId}`, postData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               "token": `${loggedData.loggedIn.token}`

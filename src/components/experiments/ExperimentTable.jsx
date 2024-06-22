@@ -15,7 +15,7 @@ function ExperimentTable() {
   const [perpage,setPerpage]=useState([]);
   const [tags,setTags]=useState();
   useEffect(()=>{
-    axios.get('http://localhost:4000/experiments/home')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/home`)
     .then(res=>
       {
         setData(res.data);
@@ -45,7 +45,7 @@ function ExperimentTable() {
   // }
   const deleteExperiment = (experimentId) => {
     if (confirm("Are you sure you want to delete?")) {
-      axios.delete(`http://localhost:4000/experiments/${experimentId}`)
+      axios.delete(`${import.meta.env.VITE_API_BASE_URL}experiments/${experimentId}`)
         .then(res => {
           setData(data.filter(exp => exp._id !== experimentId));
           alert("Deleted successfully");
@@ -135,7 +135,7 @@ function ExperimentTable() {
    <td>{res.name}</td>
    <td>{res.selectedClass}</td>
    <td>{res.subject}</td>
-   <td><img src={`http://localhost:4000/uploads/${res.image}`} width="150px" height="80px" /></td>
+   <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
    <td>{res.tags}</td>
    <td>{res.likes}</td>
    <td><Link to={`/admin/experiments/${res._id}`}><FaRegEdit /></Link></td>

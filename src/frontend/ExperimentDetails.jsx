@@ -11,7 +11,7 @@ const ExperimentDetails = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:4000/experiments/${className}/${subjectName}/${experimentName}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/${className}/${subjectName}/${experimentName}`)
       .then(response => {
         setExperiment(response.data);
       })
@@ -41,7 +41,7 @@ const ExperimentDetails = () => {
     <div className=" col-md-4">
                              
                                     <div className="cr_box">
-                                    <img src={`http://localhost:4000/uploads/${experiment.image}`} width="100%" height="100%" />
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${experiment.image}`} width="100%" height="100%" />
                                         <div className="cr_b_content">
                                         <h3 className="crb_h"><Link to={`/experiments/${experiment._id}`}>{experiment.name}</Link></h3>
                                             <ul className="crb_li">

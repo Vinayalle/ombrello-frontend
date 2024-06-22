@@ -272,7 +272,7 @@ const Home = () => {
             <div className="col-md-4">
                                 {/* <a href="" onClick={()=>deleteExperiment(res._id)}> */}
                                     <div className="cr_box">
-                                    <img src={`http://localhost:4000/uploads/${res.image}`} width="100%" height="100%" />
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="100%" height="100%" />
                                         <div className="cr_b_content">
                                         <h3 className="crb_h"><Link to={`/experiments/${res._id}`}>{res.name}</Link></h3>
                                             <ul className="crb_li">
@@ -291,7 +291,7 @@ const Home = () => {
    <td>{res.name}</td>
    <td>{res.selectedClass}</td>
    <td>{res.subject}</td>
-   <td><img src={`http://localhost:4000/uploads/${res.image}`} width="150px" height="80px" /></td>
+   <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
    <td>{res.likes}</td>
    <td><Link to={res._id}><FaRegEdit /></Link></td>
    <td><button onClick={()=>deleteExperiment(res._id)}><RiDeleteBin6Line /></button></td>
@@ -362,7 +362,7 @@ const Home = () => {
                             <div className="a_box">
                             <div className="row">
                                 <div className="col-md-5">
-                                    <img src={`http://localhost:4000/uploads/${res.image}`} alt="" className="img-responsive"/>
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} alt="" className="img-responsive"/>
                                 </div>
                                 <div className="col-md-7">
                                     <div className="a_text_box">
@@ -480,7 +480,7 @@ const Home = () => {
                             <div className="col-md-4">
                         <div className="product_box">
                             <div className="productb_img">
-                                <img className="img-responsive" src={`http://localhost:4000/uploads/${res.image}`} />
+                                <img className="img-responsive" src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} />
                             </div>
                             <div className="product_content">
                                 <h3 className="product_b_h"> {res.name} </h3>

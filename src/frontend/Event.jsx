@@ -21,7 +21,7 @@ export const Event = () => {
     useEffect(() => {
       const fetchEvent = async () => {
         try {
-          const response = await axios.get(`http://localhost:4000/events/${id}`);
+          const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}events/${id}`);
           
           setEvent(response.data);
           setDesc(response.data.description);
@@ -74,7 +74,7 @@ export const Event = () => {
          <div className='ex-container'>
          <h1>{event.name}</h1>
         
-        <img src={`http://localhost:4000/uploads/${event.image}`} width="100%" height="550px" />
+        <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${event.image}`} width="100%" height="550px" />
         {/* <p>{parse(post.description)}</p> */}
         {/* <p dangerouslySetInnerHTML={sanitizeHTML(post.description)}></p> */}
         {/* <RemoveTags textWithTags={post.description}/> */}

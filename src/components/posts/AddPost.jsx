@@ -62,7 +62,7 @@ const AddPost = () => {
     postData.append('image', formData.image);
 
     try {
-      const response = await axios.post('http://localhost:4000/posts/add', postData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}posts/add`, postData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "token":`${loggedData.loggedIn.token}`
@@ -84,7 +84,7 @@ const AddPost = () => {
 
     
 
-    fetch("http://localhost:4000/author/authors", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}author/authors`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"

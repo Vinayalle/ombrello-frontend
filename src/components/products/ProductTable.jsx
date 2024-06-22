@@ -14,7 +14,7 @@ function ProductTable() {
   const [data,setData]=useState([]);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:4000/products/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}products/`)
     .then(res=>
       {
         setData(res.data);
@@ -24,7 +24,7 @@ function ProductTable() {
   },[data])
   const deleteProduct = (productId) => {
     if (confirm("Are you sure you want to delete?")) {
-      axios.delete(`http://localhost:4000/products/${productId}`)
+      axios.delete(`${import.meta.env.VITE_API_BASE_URL}products/${productId}`)
         .then(res => {
           setData(data.filter(product => product._id !== productId));
           alert("Deleted successfully");
@@ -112,7 +112,7 @@ function ProductTable() {
    <td>{res.name}</td>
    <td>{res.price}</td>
  
-   <td><img src={`http://localhost:4000/uploads/${res.image}`} width="150px" height="80px" /></td>
+   <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
    
    <td><Link to={`/admin/products/${res._id}`}><FaRegEdit /></Link></td>
    <td><button onClick={()=>deleteProduct(res._id)}><RiDeleteBin6Line /></button></td>

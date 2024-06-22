@@ -14,7 +14,7 @@ function EventTable() {
   const [data,setData]=useState([]);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:4000/events/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}events/`)
     .then(res=>
       {
         setData(res.data);

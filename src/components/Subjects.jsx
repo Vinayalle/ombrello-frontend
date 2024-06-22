@@ -22,7 +22,7 @@ import axios from 'axios';
   
       
   
-      fetch("http://localhost:4000/subjects/", {
+      fetch(`${import.meta.env.VITE_API_BASE_URL}subjects/`, {
               method: "get",
               headers: {
                   "Content-Type": "application/json"
@@ -58,7 +58,7 @@ import axios from 'axios';
     //     }
     const deleteSubject = (subjectId) => {
       if (confirm("Are you sure you want to delete?")) {
-        axios.delete(`http://localhost:4000/subjects/${subjectId}`)
+        axios.delete(`${import.meta.env.VITE_API_BASE_URL}subjects/${subjectId}`)
           .then(res => {
             setData(data.filter(subject => subject._id !== subjectId));
             alert("Deleted successfully");

@@ -59,7 +59,7 @@ const [name,setName]=useState(null);
             <div className="col-md-4">
                 <ul className="top_phone_mail pull-right">
                     <li> 
-                      {name!=null?name:<Link to="http://localhost:5173/user/login" >Login</Link>} 
+                      {name!=null?name:<Link to="./user/login" >Login</Link>} 
                       </li>
                       
                     
@@ -71,7 +71,7 @@ const [name,setName]=useState(null);
                     
                         
                       
-                    <li><Link to="http://localhost:5173/user/register" >Join Ombrello</Link> </li>
+                    <li><Link to="./user/register" >Join Ombrello</Link> </li>
                     
                     {name!=null? <button onClick={logout} className='m-2'>Logout</button>:' '} 
                  

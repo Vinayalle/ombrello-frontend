@@ -14,7 +14,7 @@ function ClassTable() {
   // const [pagedata,setPagedata]=useState([]);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:4000/classes/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}classes/`)
     .then(res=>
       {
         setData(res.data);
@@ -24,7 +24,7 @@ function ClassTable() {
   },[data])
   const deleteClass=(classId)=>{
     if (confirm("Are you sure you want to delete?")) {
-      axios.delete(`http://localhost:4000/classes/${classId}`)
+      axios.delete(`${import.meta.env.VITE_API_BASE_URL}classes/${classId}`)
         .then(res => {
           setData(data.filter(exp => exp._id !== classId));
           alert("Deleted successfully");

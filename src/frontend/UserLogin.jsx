@@ -31,7 +31,7 @@ const userloggedInData=useContext(UserContext);
   
 
   useEffect(()=>{
-    fetch("http://localhost:4000/experiments/", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}experiments/`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -58,7 +58,7 @@ function submit(e){
   e.preventDefault();
   console.log(userCred1);
 
-  fetch("http://localhost:4000/user/login",{
+  fetch(`${import.meta.env.VITE_API_BASE_URL}user/login`,{
     method:"POST",
     body:JSON.stringify(userCred1),
     headers:{

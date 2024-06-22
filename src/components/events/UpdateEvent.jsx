@@ -35,7 +35,7 @@ const UpdateEvent= () => {
     });
   useEffect(() => {
     // Fetch the experiment data to populate the form
-    axios.get(`http://localhost:4000/events/${eventId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}events/${eventId}`)
       .then(response => {
         setFormData(response.data);
       })
@@ -154,7 +154,7 @@ const UpdateEvent= () => {
           //   formData.append('image', file);
           // }
       
-          const response = await axios.put(`http://localhost:4000/events/${eventId}`, postData, {
+          const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}events/${eventId}`, postData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               "token": `${loggedData.loggedIn.token}`

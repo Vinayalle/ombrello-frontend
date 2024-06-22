@@ -17,7 +17,7 @@ const RegistrationForm = () => {
 
   const handleSendOTP = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/send-otp', { mobile });
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}api/send-otp`, { mobile });
       setVerificationId(response.data.verificationId);
       setOtpSent(true);
     } catch (error) {
@@ -27,7 +27,7 @@ const RegistrationForm = () => {
 
   const handleVerifyOTP = async () => {
     try {
-        const response = await axios.post('http://localhost:4000/api/verify-otp', { mobile, otp });
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/verify-otp`, { mobile, otp });
         alert(response.data.message);
         // setVer(true);
         
@@ -53,7 +53,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div  className=" container user-register">
+    <div  className="container user-register">
 
     
     <form onSubmit={handleSubmit}>

@@ -43,7 +43,7 @@ const navigate=useNavigate();
 
   
       try {
-        const response = await axios.post('http://localhost:4000/classes/add', postData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}classes/add`, postData, {
           headers: {
             'Content-Type': 'application/json',
           

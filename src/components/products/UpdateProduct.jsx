@@ -31,7 +31,7 @@ const UpdateProduct= () => {
     });
   useEffect(() => {
     // Fetch the experiment data to populate the form
-    axios.get(`http://localhost:4000/products/${productId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}products/${productId}`)
       .then(response => {
         setFormData(response.data);
       })
@@ -121,7 +121,7 @@ const handleInputChange = (e) => {
           //   formData.append('image', file);
           // }
       
-          const response = await axios.put(`http://localhost:4000/products/${productId}`, postData, {
+          const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}products/${productId}`, postData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               "token": `${loggedData.loggedIn.token}`

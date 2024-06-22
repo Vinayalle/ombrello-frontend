@@ -16,7 +16,7 @@ function WebinerTable() {
 const [count,setCount]=useState(0);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:4000/webinars')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}webinars`)
     .then(res=>
       {
         setData(res.data);
@@ -31,7 +31,7 @@ const [count,setCount]=useState(0);
 
 
 
-      axios.delete(`http://localhost:4000/webiners/${webinerId}`)
+      axios.delete(`${import.meta.env.VITE_API_BASE_URL}webiners/${webinerId}`)
       .then(res=>
         {
           setData(data.filter(exp=>exp._id!==webinerId));

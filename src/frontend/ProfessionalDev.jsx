@@ -20,7 +20,7 @@ export const ProfessionalDev = () => {
     //   },[data])
       
       useEffect(()=>{
-        axios.get('http://localhost:4000/posts/')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/`)
         .then(res=>
           {
             setPosts(res.data);
@@ -48,7 +48,7 @@ export const ProfessionalDev = () => {
                             <div className="a_box">
                             <div className="row">
                                 <div className="col-md-5">
-                                    <img src={`http://localhost:4000/uploads/${res.image}`} alt="" className="img-responsive"/>
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} alt="" className="img-responsive"/>
                                 </div>
                                 <div className="col-md-7">
                                     <div className="a_text_box">

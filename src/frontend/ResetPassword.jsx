@@ -61,7 +61,7 @@ async function submit(e){
       console.log(postData);
   
       try {
-        const response = await axios.post(`http://localhost:4000/user/reset-password/${id}/${token}`, postData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}user/reset-password/${id}/${token}`, postData, {
           headers: {
             'Content-Type': 'application/json',
           //   "token":`${loggedData.loggedIn.token}`

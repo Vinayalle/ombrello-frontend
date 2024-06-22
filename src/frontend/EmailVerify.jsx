@@ -15,7 +15,7 @@ export const EmailVerify = () => {
     useEffect(()=>{
      
             try{
-                const url=`http://localhost:4000/user/${id}/verify/${token}`;
+                const url=`${import.meta.env.VITE_API_BASE_URL}user/${id}/verify/${token}`;
 const data= axios.get(url);
 console.log(data);
 setValidUrl(true);

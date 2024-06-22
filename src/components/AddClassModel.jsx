@@ -43,7 +43,7 @@ const submit=async(e)=>{
 
  
 
-  const response =await fetch("http://localhost:4000/classes/add",{
+  const response =await fetch(`${import.meta.env.VITE_API_BASE_URL}classes/add`,{
     method:"POST",
     
     headers:{

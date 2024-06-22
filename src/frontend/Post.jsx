@@ -20,7 +20,7 @@ export const Post = (props) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/posts/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/${id}`);
         
         setPost(response.data);
         setDesc(response.data.description);
@@ -72,7 +72,7 @@ export const Post = (props) => {
        <div className='ex-container'>
        <h1>{post.name}</h1>
       
-      <img src={`http://localhost:4000/uploads/${post.image}`} width="100%" height="550px" />
+      <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${post.image}`} width="100%" height="550px" />
       {/* <p>{parse(post.description)}</p> */}
       {/* <p dangerouslySetInnerHTML={sanitizeHTML(post.description)}></p> */}
       {/* <RemoveTags textWithTags={post.description}/> */}

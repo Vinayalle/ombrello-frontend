@@ -53,7 +53,7 @@ const AddProduct = () => {
     postData.append('image', formData.image);
 
     try {
-      const response = await axios.post('http://localhost:4000/products/add', postData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}products/add`, postData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "token":`${loggedData.loggedIn.token}`

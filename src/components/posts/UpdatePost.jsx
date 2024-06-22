@@ -31,7 +31,7 @@ const UpdatePost= () => {
     });
   useEffect(() => {
     // Fetch the experiment data to populate the form
-    axios.get(`http://localhost:4000/posts/${postId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/${postId}`)
       .then(response => {
         setFormData(response.data);
       })
@@ -88,7 +88,7 @@ const UpdatePost= () => {
 
     
 
-    fetch("http://localhost:4000/author/authors", {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}author/authors`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -148,7 +148,7 @@ const UpdatePost= () => {
           //   formData.append('image', file);
           // }
       
-          const response = await axios.put(`http://localhost:4000/posts/${postId}`, postData, {
+          const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}posts/${postId}`, postData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               "token": `${loggedData.loggedIn.token}`

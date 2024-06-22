@@ -14,20 +14,20 @@ const Filter = () => {
 
   useEffect(() => {
    
-    axios.get('http://localhost:4000/classes/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}classes/`)
     .then(response => {
       setClasses(response.data);
     })
     .catch(error => console.log(error));
 
-      axios.get(`http://localhost:4000/subjects/`)
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}subjects/`)
         .then(response => {
           setSubjects(response.data);
         })
         .catch(error => console.log(error));
   
 
-    axios.get(`http://localhost:4000/experiments`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments`)
     .then(response => {
       setExperiments(response.data);
     })

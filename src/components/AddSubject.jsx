@@ -42,7 +42,7 @@ export const AddSubject = () => {
 
   
       try {
-        const response = await axios.post('http://localhost:4000/subjects/add', postData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}subjects/add`, postData, {
           headers: {
             'Content-Type': 'application/json',
           
