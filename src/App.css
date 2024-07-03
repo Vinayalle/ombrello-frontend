@@ -11,6 +11,13 @@ body {
   
   font-family: 'Montserrat', sans-serif;
 }
+a.fsf_btn:hover {
+  color: black !important;
+}
+.logout-btn:hover{
+background-color: black;
+color: white;
+}
 input, select {
   text-indent: 5px;
   padding: 10px;

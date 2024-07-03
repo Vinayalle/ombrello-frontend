@@ -427,7 +427,7 @@ const Home = () => {
             <>
            
 
-            <li> <span> {month} <br/> <span className="hs_day">{day}</span> </span> <a href=""><Link to={`/events/${res._id}`}> {res.name} </Link></a> </li>      
+            <li> <span> {month} <br/> <span className="hs_day">{day}</span> </span> <a href="#" className='news-title' ><Link to={`/events/${res._id}`} className='news-title'> {res.name} </Link></a> </li>      
          
        
             

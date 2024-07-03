@@ -88,6 +88,7 @@ function PostTable() {
             <th>Author</th>
            
             <th>image</th>
+            <th>Status</th>
             <th>likes</th>
             
 
@@ -113,7 +114,8 @@ function PostTable() {
    <td>{res.authorname}</td>
  
    <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
-   
+   <td>Active</td>
+   <td>{res.likes}</td>
    <td><Link to={`/admin/posts/${res._id}`}><FaRegEdit /></Link></td>
    <td><button onClick={()=>deletePost(res._id)}><RiDeleteBin6Line /></button></td>
 
