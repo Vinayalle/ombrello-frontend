@@ -21,7 +21,7 @@ export const Experiment = (props) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/experiments/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/${id}`);
         
         setPost(response.data);
         setLikes(response.data.likes);
@@ -41,7 +41,7 @@ export const Experiment = (props) => {
   const countLikes=async (experimentId)=>{
   
       try {
-        const response =await axios.patch(`http://localhost:4000/experiments/${experimentId}/like`,null,
+        const response =await axios.patch(`${import.meta.env.VITE_API_BASE_URL}experiments/${experimentId}/like`,null,
         {
           headers: {
             
