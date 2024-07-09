@@ -95,7 +95,8 @@ const UpdateExperiment = () => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}classes/`, {
             method: "get",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                
             }
         })
         .then(res => res.json())
