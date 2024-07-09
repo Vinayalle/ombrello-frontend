@@ -274,7 +274,7 @@ const Home = () => {
                                     <div className="cr_box">
                                     <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="100%" height="100%" />
                                         <div className="cr_b_content">
-                                        <h3 className="crb_h"><Link to={`${import.meta.env.VITE_API_BASE_URL}experiments/${res._id}`}>{res.name}</Link></h3>
+                                        <h3 className="crb_h"><Link to={`http://3.106.124.101:5000/experiments/${res._id}`}>{res.name}</Link></h3>
                                             <ul className="crb_li">
                                                 <li> Good School </li>
                                                 <li>{res.likes}</li>
