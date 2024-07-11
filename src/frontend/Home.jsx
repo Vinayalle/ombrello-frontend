@@ -192,6 +192,7 @@ const Home = () => {
                 
             </div>
         </div>
+        <br/>
 
         <div id="find_search">
             <div className="container-fluid">

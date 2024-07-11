@@ -70,15 +70,16 @@ export const Post = (props) => {
     <>
        <Header/>
        <div className='ex-container'>
+        <br/>
        <h1>{post.name}</h1>
-      
-      <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${post.image}`} width="100%" height="550px" />
+      <br/>
+      <img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${post.image}`} width="100%" height="550px" /><br/>
       {/* <p>{parse(post.description)}</p> */}
       {/* <p dangerouslySetInnerHTML={sanitizeHTML(post.description)}></p> */}
       {/* <RemoveTags textWithTags={post.description}/> */}
       <div
       dangerouslySetInnerHTML={{__html: desc}}
-    />
+    /><br/>
       <p> {post.likes}</p>
       <button onClick={()=>countLikes(post._id)} ><AiOutlineLike  /></button>
       <p>Views: {post.selectedClass}</p>

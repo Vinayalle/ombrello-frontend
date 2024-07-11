@@ -2,9 +2,12 @@ import React from 'react'
 import 
 {BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
   BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
- from 'react-icons/bs'
+ from 'react-icons/bs';
+ import { AiFillCalendar } from "react-icons/ai";
  import { SiGoogleclassroom } from "react-icons/si";
  import { IoBookSharp } from "react-icons/io5";
+ import { FaUsers } from "react-icons/fa";
+ import { BsPostcard } from "react-icons/bs";
  import { GiSoapExperiment } from "react-icons/gi";
 import { Link } from 'react-router-dom';
  import logo from './assets/logo.png'
@@ -49,17 +52,17 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
             </li>
             <li className='sidebar-list-item'>
                 <a href="/admin/posts" className="a-link">
-                    <BsMenuButtonWideFill className='icon'/> Posts
+                    <BsPostcard className='icon'/> Posts
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="/admin/events" className="a-link">
-                    <BsMenuButtonWideFill className='icon'/> Events
+                    <AiFillCalendar className='icon'/> Events
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="/admin/registeredusers" className="a-link">
-                    <BsMenuButtonWideFill className='icon'/> Webinar Registrations
+                    <FaUsers className='icon'/> Webinar Registrations
                 </a>
             </li>
             {/* <li className='sidebar-list-item'>

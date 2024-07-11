@@ -71,7 +71,7 @@ function ProductTable() {
   }
   return (
     <section className='main-container'>
-
+ <h3 className='text-center'>Products</h3>
       <div className='addBtn'>
       <Link to='addProduct'  ><button>Add Product
           </button></Link>
@@ -108,7 +108,7 @@ function ProductTable() {
             <tr key={res._id}>
 
             
-   <td>{i}</td>
+   <td>{i+1}</td>
    <td>{res.name}</td>
    <td>{res.price}</td>
  

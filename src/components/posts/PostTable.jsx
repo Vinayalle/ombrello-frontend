@@ -72,8 +72,10 @@ function PostTable() {
   }
   return (
     <section className='main-container'>
+ <h3 className='text-center'>Posts</h3>
 
       <div className='addBtn'>
+        
 
         <Link to='addPost'  ><button>Add 
           </button></Link>
@@ -105,7 +107,7 @@ function PostTable() {
           
           return (
             <>
-            {i}
+            {i+1}
             <tr key={res._id}>
 
             
@@ -114,7 +116,7 @@ function PostTable() {
    <td>{res.authorname}</td>
  
    <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
-   <td>Active</td>
+   <td>{res.status!=null?res.status:"null"}</td>
    <td>{res.likes}</td>
    <td><Link to={`/admin/posts/${res._id}`}><FaRegEdit /></Link></td>
    <td><button onClick={()=>deletePost(res._id)}><RiDeleteBin6Line /></button></td>

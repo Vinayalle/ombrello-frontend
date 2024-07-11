@@ -11,9 +11,45 @@ body {
   
   font-family: 'Montserrat', sans-serif;
 }
-a.fsf_btn:hover {
-  color: black !important;
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
+      flex-direction: row;
+      column-gap: 20px !important;
+      
+  }
 }
+a.nav-link {
+  font-size: 16px !important;
+}
+.text-center{
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px !important;
+}
+a.fsf_btn:hover {
+  color: rgb(255, 254, 254) !important;
+  background-color: #101010 !important;
+}
+a.fsf_btn {
+  color: #00a693;
+  
+}
+.a_btn:hover{
+  color: var(--secondary-color) !important;
+  background-color: #0a0a0a !important;
+}
+.b_t_hb:hover {
+  color: var(--secondary-color) !important;
+  background-color: #00a693;
+}
+a.fsf_b{
+  background-color: #00a693 !important;
+  color: white !important;
+}
+/* .fsf_btn{
+  background-color: #00a693;
+  color: white;
+} */
 .logout-btn:hover{
 background-color: black;
 color: white;

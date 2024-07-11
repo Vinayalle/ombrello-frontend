@@ -92,7 +92,7 @@ function ExperimentTable() {
   }
   return (
     <section className='main-container'>
-
+ <h3 className='text-center'>Experiments</h3>
       <div className='addBtn'>
 
         {/* <Link to='/addExperiment' >Add </Link> */}
@@ -131,7 +131,7 @@ function ExperimentTable() {
             <tr key={res._id}>
 
             
-   <td>{i}</td>
+   <td>{i+1}</td>
    <td>{res.name}</td>
    <td>{res.selectedClass}</td>
    <td>{res.subject}</td>

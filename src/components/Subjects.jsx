@@ -88,6 +88,7 @@ import axios from 'axios';
 
         
          <section className='main-container'>
+         <h3 className='text-center'>Subjects</h3>
          <div className='addBtn'>
       <Link to='/admin/subjects/addSubject'  ><button>Add Subject
           </button></Link>
@@ -117,7 +118,7 @@ import axios from 'axios';
             <tr>
 
             
-<td>{i}</td>
+<td>{i+1}</td>
 <td>{res.name}</td>
 {/* <td><Link to={res._id}><FaRegEdit /></Link></td> */}
 <td><button onClick={()=>deleteSubject(res._id)}><RiDeleteBin6Line /></button></td>

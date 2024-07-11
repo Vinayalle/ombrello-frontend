@@ -167,7 +167,7 @@ export const Experiment = (props) => {
           ))}
                             </select>
                             <div className="fsf_b">
-                                <Link to={`/experiment/${selectedClass}/${selectedSubject}`} className="fsf_btn">  Go </Link>
+                                <Link to={`/experiment/${selectedClass}/${selectedSubject}`} className="fsf_b">  Go </Link>
                                 </div>
                         </form>
                       

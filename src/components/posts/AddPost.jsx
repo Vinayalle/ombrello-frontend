@@ -25,7 +25,7 @@ const AddPost = () => {
     name: '',
     description: '',
     authorname: '',
-    
+    status:'',
     image: null
   });
 
@@ -58,6 +58,7 @@ const AddPost = () => {
     postData.append('name', formData.name);
     postData.append('description', formData.description);
     postData.append('authorname', formData.authorname);
+    postData.append('status', formData.status);
     
     postData.append('image', formData.image);
 
@@ -189,12 +190,32 @@ const AddPost = () => {
         onChange={handleInputChange}
       /> */}
 
-<label>select author</label>
+<label>Status</label>
 <select
+        name="status"
+        value={formData.status}
+        onChange={handleInputChange}
+      >
+       
+   
+       <option value=" " >Select Status</option>
+   <option value="published" >Published</option>
+   <option value="upcoming" >Upcoming</option>
+
+
+            
+           
+          
+       
+       
+      </select>
+
+      <select
         name="authorname"
         value={formData.authorname}
         onChange={handleInputChange}
       >
+        <option value=" " >Select Status</option>
         {
      data && data.map((res)=>{
           var i=0;

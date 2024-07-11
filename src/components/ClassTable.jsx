@@ -74,6 +74,8 @@ function ClassTable() {
   }
   return (
     <section className='main-container'>
+
+      <h3 className='text-center'>Classes</h3>
         <div className='addBtn'>
       <Link to='/admin/classes/addClass'  ><button>Add Class
           </button></Link>
@@ -106,7 +108,7 @@ function ClassTable() {
             <>
             
             <tr key={res._id}>
-            <td>{i}</td>
+            <td>{i+1}</td>
             
    {/* <td>{i+1}</td> */}
    <td>{res.className}</td>

@@ -26,6 +26,7 @@ const UpdatePost= () => {
         name: '',
         description: '',
         authorname: '',
+        status:'',
         
         image: null
     });
@@ -141,6 +142,7 @@ const UpdatePost= () => {
           postData.append('name', formData.name);
           postData.append('description', formData.description);
           postData.append('authorname', formData.authorname);
+          postData.append('status', formData.status);
          
           
           postData.append('image', formData.image);
@@ -230,6 +232,24 @@ const UpdatePost= () => {
           )
         })
       }
+       
+      </select>
+
+      <select
+        name="status"
+        value={formData.status}
+        onChange={handleInputChange}
+      >
+       
+  
+      
+   <option value="published" >Published</option>
+   <option value="upcoming" >Upcoming</option>
+
+
+            
+           
+       
        
       </select>
       <input

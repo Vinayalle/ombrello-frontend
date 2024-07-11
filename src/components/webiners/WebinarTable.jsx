@@ -76,7 +76,7 @@ const [count,setCount]=useState(0);
   }
   return (
     <section className='main-container'>
-
+ <h3 className='text-center'>Webinar Registrations</h3>
       {/* <div className='addBtn'>
 
         <Link to='addEvent'  ><button>Add 
@@ -113,7 +113,7 @@ const [count,setCount]=useState(0);
             <>
           
             <tr key={res._id}>
-                <td>{i}</td>
+                <td>{i+1}</td>
 
             
  

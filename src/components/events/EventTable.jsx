@@ -86,7 +86,7 @@ function EventTable() {
   }
   return (
     <section className='main-container'>
-
+ <h3 className='text-center'>Events</h3>
       <div className='addBtn'>
 
         <Link to='addEvent'  ><button>Add 
@@ -122,7 +122,7 @@ function EventTable() {
             <tr key={res._id}>
 
             
-   <td>{i}</td>
+   <td>{i+1}</td>
    <td>{res.name}</td>
    <td>{res.status}</td>
  
