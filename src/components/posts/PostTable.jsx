@@ -14,7 +14,7 @@ function PostTable() {
   const [data,setData]=useState([]);
   const [perpage,setPerpage]=useState([]);
   useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}posts/allposts`)
     .then(res=>
       {
         setData(res.data);
