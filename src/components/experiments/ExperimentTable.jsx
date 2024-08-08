@@ -13,17 +13,25 @@ import axios from 'axios';
 function ExperimentTable() {
   const [data,setData]=useState([]);
   const [perpage,setPerpage]=useState([]);
+  const [pageNumber,setPageNumber]=useState(1);
   const [tags,setTags]=useState();
   useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/home`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/all`)
     .then(res=>
       {
         setData(res.data);
       
-      setPerpage(res.data.slice(0,10));
+        setPerpage(data.slice((pageNumber*10)-10,pageNumber*10));
+        console.log(pageNumber);
     0
     })
   },[data])
+
+  
+  
+
+    // Get the items for the current page
+    
 
   // const deleteExperiment=(experimentId)=>{
   
@@ -88,7 +96,11 @@ function ExperimentTable() {
   // },[])
 
   const pageHandler=(pageNumber)=>{
+    // console.log(data.slice((pageNumber*10)-10,pageNumber*10));
+    
+    
     setPerpage(data.slice((pageNumber*10)-10,pageNumber*10));
+    setPageNumber(pageNumber);
   }
   return (
     <section className='main-container'>
@@ -122,16 +134,17 @@ function ExperimentTable() {
           
 
           {
-        perpage && perpage.map((res,i)=>{
+        perpage.map((res,i)=>{
           
           
           return (
             <>
             
+            
             <tr key={res._id}>
 
             
-   <td>{i+1}</td>
+   <td>{(pageNumber*10)-10+i+1}</td>
    <td>{res.name}</td>
    <td>{res.selectedClass}</td>
    <td>{res.subject}</td>

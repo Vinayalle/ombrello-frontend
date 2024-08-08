@@ -23,8 +23,9 @@ const Home = () => {
     const [classes, setClasses] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [experiments, setExperiments] = useState([]);
-  const [selectedClass, setSelectedClass] = useState('');
-  const [selectedSubject, setSelectedSubject] = useState('');
+  const [experimentsByFiter, setExperimentsByFilter] = useState([]);
+  const [selectedClass, setSelectedClass] = useState('class6');
+  const [selectedSubject, setSelectedSubject] = useState('Subject2');
   const [selectedExperiment, setSelectedExperiment] = useState('');
     useEffect(()=>{
       axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/`)
@@ -86,6 +87,25 @@ const Home = () => {
         .catch(error => console.log(error));
     
       }, []);
+
+
+      useEffect(() => {
+        if (selectedClass && selectedSubject ) {
+            axios.get(`${import.meta.env.VITE_API_BASE_URL}experiments/${selectedClass}/${selectedSubject}`)
+                .then(response => {
+                   
+                    
+                    setExperimentsByFilter(response.data);
+                        console.log(response.data);
+
+                    
+                    
+                })
+                .catch(error => console.log(error));
+        } else {
+            setExperiments([]);
+        }
+    }, [selectedClass,selectedSubject]);
     
 
 
@@ -206,7 +226,7 @@ const Home = () => {
                                     <div className="form-group">
                                         <label> Grade Level </label>
                                         <select className="form-control fs_form" onChange={(e) => setSelectedClass(e.target.value)} value={selectedClass}>
-                                        <option value="">Select Class</option>
+                                        <option value="class6">Select Class</option>
            {classes.map((cls) => (
             <option key={cls._id} value={cls.className}>{cls.className}</option>
           ))}
@@ -218,7 +238,7 @@ const Home = () => {
                                     <div className="form-group">
                                         <label> Resource </label>
                                         <select className="form-control fs_form" onChange={(e) => setSelectedSubject(e.target.value)} value={selectedSubject}>
-                                        <option value="">Select Experiment</option>
+                                        <option value="Subject2">Select Experiment</option>
                                         {subjects.map((subj) => (
             <option key={subj._id} value={subj.name}>{subj.name}</option>
           ))}
@@ -231,7 +251,7 @@ const Home = () => {
                                         <label> Topic* </label>
                                         <select className="form-control fs_form" onChange={(e) => setSelectedExperiment(e.target.value)} value={selectedExperiment} required>
                                         <option value="">Select Experiment</option>
-                                        {experiments.map((exp) => (
+                                        {experimentsByFiter.map((exp) => (
             <option key={exp._id} value={exp.name}>{exp.name}</option>
           ))}
                                         </select>
@@ -265,7 +285,11 @@ const Home = () => {
                            
 
                             {
-        perpage && perpage.map((res)=>{
+
+// {experimentsByFiter.map((exp) => (
+   
+//   ))}
+        perpage && experimentsByFiter.map((res)=>{
           
           return (
         
@@ -284,21 +308,10 @@ const Home = () => {
                                     </div>
                                 {/* </a> */}
                             </div>
+
+                            
             
-            {/* <tr key={res._id}>
-
-            
-   <td>{i+1}</td>
-   <td>{res.name}</td>
-   <td>{res.selectedClass}</td>
-   <td>{res.subject}</td>
-   <td><img src={`${import.meta.env.VITE_API_BASE_URL}uploads/${res.image}`} width="150px" height="80px" /></td>
-   <td>{res.likes}</td>
-   <td><Link to={res._id}><FaRegEdit /></Link></td>
-   <td><button onClick={()=>deleteExperiment(res._id)}><RiDeleteBin6Line /></button></td>
-
-
-</tr> */}
+      
             
             </>
           
@@ -443,12 +456,12 @@ const Home = () => {
                         </ul>
 
                         <ul className="home_sidebar"> <h2 className="hs_h"> Upcoming & Recent Webinars </h2>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 1 </a> </li>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 2 </a> </li>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 3 </a> </li>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 4 </a> </li>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 5 </a> </li>
-                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href=""> News & Update Heading 6 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 1 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 2 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 3 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 4 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 5 </a> </li>
+                            <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 6 </a> </li>
                         </ul>
 
                     </div>

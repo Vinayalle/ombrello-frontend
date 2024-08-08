@@ -86,7 +86,7 @@ const [name,setName]=useState(null);
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className='mobile-nav'>
           <Nav className="me-auto men">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/class-resources">Classroom Resources</Nav.Link>

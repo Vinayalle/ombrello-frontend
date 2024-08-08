@@ -13,12 +13,13 @@ function ClassTable() {
   const [data,setData]=useState([]);
   // const [pagedata,setPagedata]=useState([]);
   const [perpage,setPerpage]=useState([]);
+  const [pageNumber,setPageNumber]=useState(1);
   useEffect(()=>{
     axios.get(`${import.meta.env.VITE_API_BASE_URL}classes/`)
     .then(res=>
       {
         setData(res.data);
-      setPerpage(res.data.slice(0,10));
+        setPerpage(data.slice((pageNumber*10)-10,pageNumber*10));
     
     })
   },[data])
@@ -71,6 +72,7 @@ function ClassTable() {
 
   const pageHandler=(pageNumber)=>{
     setPerpage(data.slice((pageNumber*10)-10,pageNumber*10));
+    setPageNumber(pageNumber);
   }
   return (
     <section className='main-container'>
@@ -108,7 +110,7 @@ function ClassTable() {
             <>
             
             <tr key={res._id}>
-            <td>{i+1}</td>
+            <td> <td>{(pageNumber*10)-10+i+1}</td></td>
             
    {/* <td>{i+1}</td> */}
    <td>{res.className}</td>
