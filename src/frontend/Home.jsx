@@ -455,7 +455,7 @@ const Home = () => {
                             
                         </ul>
 
-                        <ul className="home_sidebar"> <h2 className="hs_h"> Upcoming & Recent Webinars -new </h2>
+                        <ul className="home_sidebar"> <h2 className="hs_h"> Upcoming & Recent Webinars </h2>
                             <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 1 </a> </li>
                             <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 2 </a> </li>
                             <li> <span> Mar <br/> <span className="hs_day">21</span> </span> <a href="#" className='news-title'> News & Update Heading 3 </a> </li>
