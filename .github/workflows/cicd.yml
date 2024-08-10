@@ -42,8 +42,8 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/ombrello-frontend:latest
             
             # Stop and remove any existing container with the same name
-            docker stop ombrello-frontend || true
-            docker rm ombrello-frontend || true
+            # docker stop ombrello-frontend || true
+            # docker rm ombrello-frontend || true
             # Remove untagged Docker images
             docker image prune -f
             
